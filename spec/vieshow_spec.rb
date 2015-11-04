@@ -29,6 +29,29 @@ describe 'Get film information' do
 end
 
 describe 'Outside of 1 and 14 must fail' do
+  it 'should return 404 for id out of range' do
+    get '/api/v1/cinema/0.json'
+    last_response.status.must_equal 404
+  end
+
+  it 'should return 404 for id out of range' do
+    get '/api/v1/cinema/15.json'
+    last_response.status.must_equal 404
+  end
+
+  it 'should return 404 for id out of range' do
+    get '/api/v1/cinema/0/movies'
+    last_response.status.must_equal 404
+  end
+
+  it 'should return 404 for id out of range' do
+    get '/api/v1/cinema/15/movies'
+    last_response.status.must_equal 404
+  end
+end
+
+
+describe 'Outside of 1 and 14 must fail' do
   # Hen qi gwai
   # FAIL_SITES.each do |site|
   #   TEST_INFO.each do |t|
